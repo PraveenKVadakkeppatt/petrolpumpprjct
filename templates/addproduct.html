@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<style>
+    .register{
+        background-color: rgba(0,0,0,.8);
+        width: 100%;
+        font-size: 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.3);
+        box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+        color: #fff;
+    }
+    
+</style>
+
+<div class="container ">
+    <div class="register">
+        {% for message in messages %}
+    <h5>
+        <div class="alert alert-success mt-5" style="width: 50%;">
+            {{ message }}
+        </div>
+        {% endfor %}
+   <form action="products_add" enctype="multipart/form-data" method="post" class="form pt-5 pb-5" style="width: 50%; margin-left:25%">
+       {% csrf_token %}
+       <h1 class="text-center" style="color: #fff;">ADD PRODUCT</h1>
+
+       <input type="text" name="product_name" class="form-control" placeholder="product Name"><br>
+       <input type="text" name="description"class="form-control" placeholder="description"><br>
+       <input type="number" name="price"class="form-control" placeholder="price"><br>
+       <input type="file" name="file"class="form-control" placeholder="image"><br>
+       <select class="form-control w-100" name="sel">
+       <option value="">Select category</option><br>
+       {% for category in cors %}
+       <option value="{{category.id}}" >{{category.category_name}}</option><br>
+       {% endfor %}
+       </select><br>
+       
+       
+       <button type="submit" class="btn btn-info m-10" style="margin-left: 40%;">Submit</button>
+       <br>
+   </form>
+</div>
+
+
+{% endblock %}

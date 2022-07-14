@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+
+.table:hover{
+        background-color: #f5f5f5;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0,0,0,1),-1px -1px 8px rgba(0,0,0,0.2);
+    }
+    .table{
+        transition: all .2s ease-in;
+        cursor: pointer;
+    
+    
+    }
+    h2{
+      padding-top: 25px;
+      margin-top: 20px;
+
+    }
+    .table th{
+        background-color: darkblue;
+        color: #fff;
+    }
+
+</style>
+
+<table  class="table text-center ">
+  <h2 align="center">Show details</h2>
+  <tr>
+      <th>Product name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Category</th>
+      <th>Action</th>
+  </tr>
+  {% for p in pro %}
+ <tr>
+     
+     <td>{{p.product_name}}</td>
+     <td>{{p.price}}</td>
+     <td><img width="70px" src='{{ p.image.url }}'></td>  
+     <td>{{p.category.category_name}}</td>
+ 
+     
+      <td>
+      <a href="{% url 'deleted' p.id %}"class="btn btn-danger" >Delete</a></td>
+      
+  </tr>
+  {% endfor %}
+</table>
+
+
+  
+
+  </div>
+</div>
+
+
+
+{% endblock%}

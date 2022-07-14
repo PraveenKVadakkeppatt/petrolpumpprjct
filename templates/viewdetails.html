@@ -1,0 +1,16 @@
+{% extends 'userbase.html' %}
+
+{% block content %}
+
+<div class="col md-3" style="background-color:white; margin-left:380px;width:600px;">
+    <div class="card m-1 ">
+        <img class="card-img-top " src="{{pro.image.url}}"style="height: 500px;width: 560px;"  alt="" >
+     <div class="card-body ">
+        <h5 class="card-title">{{pro.product_name}}</h5>
+        <p class="card-text">Size: {{pro.descrption}}</p>
+        <P class="card-text text-success">₹{{pro.price}}</P>
+        <a href="{% url 'cartitem' pro.id user.id %}" class="btn btn-primary m-1">Add to cart</a>
+        <a href="" class="btn btn-danger  m-1">BUY NOW</a>
+       
+
+{% endblock%}

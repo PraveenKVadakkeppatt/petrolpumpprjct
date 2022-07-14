@@ -1,0 +1,54 @@
+{% extends 'userbase.html' %}
+
+{% block content %}
+
+<style>
+   
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../images/1065.jpg');
+  }
+
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-width: 300px;
+  margin: auto;
+  background-color: white;
+  text-align: center;
+  border-radius: 40px;
+  padding-bottom: 15px;
+  margin-top: 25px;
+}
+.title{
+  color: gray;
+  font-size: 18px;
+}
+.list-group-item{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+</style>
+
+<div class="column">
+<div class="card">
+    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="title">MY PROFILE</h5>
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name     -{{std.first_name}}-{{user.last_name}}</li>
+      <li class="list-group-item">Username -{{std.username}}</li>
+      <li class="list-group-item">Email    -{{std.email}}</li>
+    </ul>
+    <!-- <a class="btn btn-dark" href="">Edit</a></button> -->
+    <div class="card-body">
+        
+     
+    </div> 
+    </div>
+  </div>
+
+
+{% endblock %}

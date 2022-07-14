@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  }
+  body{
+    color: #fff;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .container{
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,#dc0606ca,#05073a);
+  }
+
+</style>
+
+<body>
+  <!-- <div style="width:60% ;padding-left: 400px;padding-top: 25px;"> -->
+    <div class="container">
+      <h1><u>ADD EMPLOYEE</u></h1>
+    <form method="post" action="{% url 'add_employee' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-details">
+          <div class="card-box">
+          <span class="details">EMPLOYEE NAME: </span>
+          <input type="text" class="form-control" name="ename">
+        </div>
+        <div class="card-box">
+          <span class="details">EMPLOYEE Address: </span>
+          <input type="text" class="form-control" name="eaddress">
+        </div>
+        <div class="card-box">
+          <span class="details">EMPLOYEE Age: </span>
+            <input type="number" class="form-control" name="eage">
+          </div>
+          <div class="card-box">
+            <span class="details">Date Of Joining: </span>
+            <input type="date" class="form-control" name="dname">
+          </div>
+          <div class="form-group" style="color:#000 ;">
+            <div class="form-check form-check-inline" style="color:#fff ;">
+                <input type="radio" class="form check input" value="male" name="egender" >
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline" style="color:#fff ;">
+                <input type="radio" class="form check input" value="female" name="egender" >
+                <label class="form-check-label">Female</label>
+            </div>
+            <div class="form-check form-check-inline" style="color:#fff ;">
+                <input type="radio" class="form check input" value="other" name="egender" >
+                <label class="form-check-label">Other</label><br>
+            </div>
+            <div class="card-box" style="color:#fff ;">
+              <span class="details">MOBILE.No: </span>
+                <input type="number" class="form-control" name="emobile">
+            </div>
+
+            <div class="card-box" style="color:#fff ;">
+              <span class="details">PHOTO: </span>
+                <input type="file" class="form-control-file" accept="image/*" name="photo">
+                
+            </div><br>
+        
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      </form>
+    </div>
+</body>
+
+{% endblock %}

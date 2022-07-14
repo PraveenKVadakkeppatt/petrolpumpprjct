@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .table:hover{
+        background-color: #f5f5f5;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0,0,0,1),-1px -1px 8px rgba(0,0,0,0.2);
+    }
+    .table{
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+    
+    .table td,.table th{
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+        font-size: 16px;
+    }
+    .table th{
+        background-color: darkblue;
+        color: #fff;
+    }
+</style>
+<div class="table-responsive">
+<table align="center" border="1" class="table text-center " style="width:1000px; height: 500px; ">
+    <h2 align="center">View cart users</h2>
+    <tr>
+        <th>Customer Name</th>
+        <th>Image</th>
+        <th>Ordered items</th>
+        <th>Price</th>
+        
+        
+        
+        <th>Action</th>
+    </tr>
+    {% for p in item %}
+   <tr>
+       <td>{{p.User.first_name}}</td>
+    <td><img width="150px" src='{{ p.product.image.url }}' ></td>  
+       <td>{{p.product.product_name}}</td>
+       <td>{{p.product.price}}</td>
+       
+       <td>
+        <a href="{% url 'deleteitem' p.id %}"class="btn btn-danger" >Delete</a></td>
+        
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock %}

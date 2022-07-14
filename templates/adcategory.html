@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+<div class="container " style="border-radius: 10px; width:50%">
+    <div class="container text-center">
+        {% for message in messages %}
+    <h5>
+        <div class="alert alert-success mt-5" style="width: 50%;">
+            {{ message }}
+        </div>
+        {% endfor %}
+   <form action="{% url 'addcate' %}" method="post" class="form pt-5 pb-5" style="width: 50%; margin-left:25%">
+       {% csrf_token %}
+       <h1 class="text-center">ADD CATEGORY</h1>
+
+       <input type="text" name="category_name" class="form-control" placeholder="add category Name"><br>
+      
+       
+       <button type="submit" class="btn btn-info">Submit</button>
+       <br>
+   </form>
+</div>
+
+
+
+{% endblock%}
